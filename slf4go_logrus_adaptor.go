@@ -5,7 +5,6 @@ import (
 	"github.com/aellwein/slf4go"
 )
 
-//---------------------------------------------------------------------
 // facade for logrus
 type LoggerAdaptorLogrus struct {
 	slf4go.LoggerAdaptor
