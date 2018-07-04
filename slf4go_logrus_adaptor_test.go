@@ -35,8 +35,10 @@ func TestGetLogrusLogger(t *testing.T) {
 	logger.Info("this should net appear.")
 	logger.Error("what?")
 	logger.Errorf("what?..$%s$", "XD")
-	logger.Fatalf("import cycle not allowed! %s", "shit...")
-	logger.Fatal("never reach here")
+
+	// These tests will cause the build break
+	//logger.Fatalf("import cycle not allowed! %s", "shit...")
+	//logger.Fatal("never reach here")
 }
 
 func TestLogrusPanic(t *testing.T) {
