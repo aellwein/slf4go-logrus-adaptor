@@ -22,7 +22,7 @@ func TestGetLogrusLogger(t *testing.T) {
 
 	// do test
 	logger := slf4go.GetLogger("test")
-	logger.SetLevel(slf4go.LEVEL_TRACE)
+	logger.SetLevel(slf4go.LevelTrace)
 	logger.Debug("are you prety?", true)
 	logger.Debugf("are you prety? %t", true)
 	logger.Info("how old are you? ", nil)
@@ -30,7 +30,7 @@ func TestGetLogrusLogger(t *testing.T) {
 	logger.Warn("you aren't honest! ")
 	logger.Warnf("haha%02d", 1000, nil)
 	logger.Trace("set level!!!!!!!")
-	logger.SetLevel(slf4go.LEVEL_WARN)
+	logger.SetLevel(slf4go.LevelWarn)
 	logger.Trace("set level???")
 	logger.Info("this should net appear.")
 	logger.Error("what?")

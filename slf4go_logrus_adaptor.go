@@ -22,19 +22,19 @@ func newLogrusLogger(name string, logger *log.Logger) *LoggerAdaptorLogrus {
 func (logger *LoggerAdaptorLogrus) SetLevel(l slf4go.LogLevel) {
 	logger.LoggerAdaptor.SetLevel(l)
 	switch l {
-	case slf4go.LEVEL_TRACE:
+	case slf4go.LevelTrace:
 		logger.entry.Level = log.DebugLevel
-	case slf4go.LEVEL_DEBUG:
+	case slf4go.LevelDebug:
 		logger.entry.Level = log.DebugLevel
-	case slf4go.LEVEL_INFO:
+	case slf4go.LevelInfo:
 		logger.entry.Level = log.InfoLevel
-	case slf4go.LEVEL_WARN:
+	case slf4go.LevelWarn:
 		logger.entry.Level = log.WarnLevel
-	case slf4go.LEVEL_ERROR:
+	case slf4go.LevelError:
 		logger.entry.Level = log.ErrorLevel
-	case slf4go.LEVEL_FATAL:
+	case slf4go.LevelFatal:
 		logger.entry.Level = log.FatalLevel
-	case slf4go.LEVEL_PANIC:
+	case slf4go.LevelPanic:
 		logger.entry.Level = log.PanicLevel
 	}
 }
