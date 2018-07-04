@@ -40,60 +40,60 @@ func (logger *LoggerAdaptorLogrus) SetLevel(l slf4go.LogLevel) {
 }
 func (logger *LoggerAdaptorLogrus) Trace(args ...interface{}) {
 	// forward to Debug
-	logger.Debug(args)
+	logger.Debug(args...)
 }
 
 func (logger *LoggerAdaptorLogrus) Tracef(format string, args ...interface{}) {
 	// forward to Debug
-	logger.Debugf(format, args)
+	logger.Debugf(format, args...)
 }
 
 func (logger *LoggerAdaptorLogrus) Debug(args ...interface{}) {
-	logger.entry.Debugln(args)
+	logger.entry.Debugln(args...)
 }
 
 func (logger *LoggerAdaptorLogrus) Debugf(format string, args ...interface{}) {
-	logger.entry.Debugf(format, args)
+	logger.entry.Debugf(format, args...)
 }
 
 func (logger *LoggerAdaptorLogrus) Info(args ...interface{}) {
-	logger.entry.Infoln(args)
+	logger.entry.Infoln(args...)
 }
 
 func (logger *LoggerAdaptorLogrus) Infof(format string, args ...interface{}) {
-	logger.entry.Infof(format, args)
+	logger.entry.Infof(format, args...)
 }
 
 func (logger *LoggerAdaptorLogrus) Warn(args ...interface{}) {
-	logger.entry.Warnln(args)
+	logger.entry.Warnln(args...)
 }
 
 func (logger *LoggerAdaptorLogrus) Warnf(format string, args ...interface{}) {
-	logger.entry.Warnf(format, args)
+	logger.entry.Warnf(format, args...)
 }
 
 func (logger *LoggerAdaptorLogrus) Error(args ...interface{}) {
-	logger.entry.Errorln(args)
+	logger.entry.Errorln(args...)
 }
 
 func (logger *LoggerAdaptorLogrus) Errorf(format string, args ...interface{}) {
-	logger.entry.Errorf(format, args)
+	logger.entry.Errorf(format, args...)
 }
 
 func (logger *LoggerAdaptorLogrus) Fatal(args ...interface{}) {
-	logger.entry.Fatalln(args)
+	logger.entry.Fatalln(args...)
 }
 
 func (logger *LoggerAdaptorLogrus) Fatalf(format string, args ...interface{}) {
-	logger.entry.Fatalf(format, args)
+	logger.entry.Fatalf(format, args...)
 }
 
 func (logger *LoggerAdaptorLogrus) Panic(args ...interface{}) {
-	logger.entry.Panicln(args)
+	logger.entry.Panicln(args...)
 }
 
 func (logger *LoggerAdaptorLogrus) Panicf(format string, args ...interface{}) {
-	logger.entry.Panicf(format, args)
+	logger.entry.Panicf(format, args...)
 }
 
 //------------------------------------------------------------------------------
