@@ -27,3 +27,9 @@ Note the underscore in front of the import of the SLF4GO adaptor.
 
 You can change the logger implementation anytime, without changing the facade you are using, only by changing 
 the imported adaptor.
+
+# Development
+
+* Install [Dep](https://github.com/golang/dep) tool.
+* Type ``dep ensure``, so that all vendored packages can be fetched.
+* use ``go build ./...`` as usual.
