@@ -1,6 +1,11 @@
-# Logrus adaptor for slf4go
+[![Go Report Card](https://goreportcard.com/badge/github.com/aellwein/slf4go-logrus-adaptor)](https://goreportcard.com/report/github.com/aellwein/slf4go-logrus-adaptor)
+[![Coverage Status](https://img.shields.io/coveralls/github/aellwein/slf4go-logrus-adaptor/master.svg)](https://coveralls.io/github/aellwein/slf4go-logrus-adaptor?branch=master)
+[![Build Status](https://img.shields.io/travis/aellwein/slf4go-native-adaptor/master.svg)](https://travis-ci.org/aellwein/slf4go-native-adaptor) 
 
-This is a [Logrus](https://github.com/sirupsen/logrus) adaptor implementation for [slf4go](https://github.com/aellwein/slf4go).
+
+# Logrus adaptor for SLF4GO
+
+This is a [Logrus](https://github.com/sirupsen/logrus) adaptor implementation for [SLF4GO](https://github.com/aellwein/slf4go).
 
 An example usage is stupid simple:
 
