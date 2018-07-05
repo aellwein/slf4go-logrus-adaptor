@@ -10,8 +10,24 @@
 [[projects]]
   name = "github.com/aellwein/slf4go"
   packages = ["."]
-  revision = "18aa766a93f351a4ab2644feb6b5dfb7051385a3"
-  version = "v0.1"
+  revision = "55c731e170cd266f95645cf2e6fcee7718234e07"
+  version = "v0.2"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/bouk/monkey"
+  packages = ["."]
+  revision = "5df1f207ff77e025801505ae4d903133a0b4353f"
+
+[[projects]]
+  name = "github.com/smartystreets/assertions"
+  packages = [
+    ".",
+    "internal/go-render/render",
+    "internal/oglematchers"
+  ]
+  revision = "7678a5452ebea5b7090a6b163f844c133f523da2"
+  version = "1.8.3"
 
 [[projects]]
   branch = "master"
@@ -31,6 +47,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "f3875ed39188f0844af205dc1c37ad2aaf78579dc2a53957473bc4ec6b35d111"
+  inputs-digest = "d0e28658925f4e330dcc200cd7357df926a93c40d40133d8366d15178406e92f"
   solver-name = "gps-cdcl"
   solver-version = 1
