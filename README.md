@@ -33,6 +33,19 @@ Note the underscore in front of the import of the SLF4GO adaptor.
 You can change the logger implementation anytime, without changing the facade you are using, only by changing 
 the imported adaptor.
 
+# Logging parameters
+
+This adaptor supports several parameters, available with ``SetLoggingParameters``:
+
+
+ Parameter Key     | Value Type                        | Description
+-------------------|-----------------------------------|----------------------------------
+ "formatter"       | ``logrus.Formatter``              | Logrus Formatter to use
+ "output"          | ``io.Writer``                     | Ouput writer as defined by Logrus
+ "level"           | ``logrus.Level``                  | Log level to use
+ "fields"          | ``logrus.Fields``                 | A map containing fields to be included in output
+ "hooks"           | ``[]logrus.Hook``                 | List of hooks to be used with Logrus
+
 # Development
 
 * Install [Dep](https://github.com/golang/dep) tool.
