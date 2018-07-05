@@ -95,7 +95,6 @@ func (logger *LoggerAdaptorLogrus) Panicf(format string, args ...interface{}) {
 	logger.entry.Panicf(format, args...)
 }
 
-//------------------------------------------------------------------------------
 // LoggerFactory for logrus
 type LogrusLoggerFactory struct {
 	logger *log.Logger
