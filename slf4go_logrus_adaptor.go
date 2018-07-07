@@ -25,19 +25,19 @@ func (lgr *loggerAdaptorLogrus) SetLevel(l slf4go.LogLevel) {
 	lgr.LoggerAdaptor.SetLevel(l)
 	switch l {
 	case slf4go.LevelTrace:
-		lgr.entry.Level = log.DebugLevel
+		lgr.entry.Logger.Level = log.DebugLevel
 	case slf4go.LevelDebug:
-		lgr.entry.Level = log.DebugLevel
+		lgr.entry.Logger.Level = log.DebugLevel
 	case slf4go.LevelInfo:
-		lgr.entry.Level = log.InfoLevel
+		lgr.entry.Logger.Level = log.InfoLevel
 	case slf4go.LevelWarn:
-		lgr.entry.Level = log.WarnLevel
+		lgr.entry.Logger.Level = log.WarnLevel
 	case slf4go.LevelError:
-		lgr.entry.Level = log.ErrorLevel
+		lgr.entry.Logger.Level = log.ErrorLevel
 	case slf4go.LevelFatal:
-		lgr.entry.Level = log.FatalLevel
+		lgr.entry.Logger.Level = log.FatalLevel
 	case slf4go.LevelPanic:
-		lgr.entry.Level = log.PanicLevel
+		lgr.entry.Logger.Level = log.PanicLevel
 	}
 }
 func (lgr *loggerAdaptorLogrus) Trace(args ...interface{}) {
