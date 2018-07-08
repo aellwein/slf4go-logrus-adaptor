@@ -8,10 +8,10 @@
   version = "v1.0.5"
 
 [[projects]]
-  branch = "master"
   name = "github.com/aellwein/slf4go"
   packages = ["."]
   revision = "e01e7c5b3156f862927ac27785b1cce4b9dd4d6d"
+  version = "v0.4"
 
 [[projects]]
   branch = "master"
