@@ -14,10 +14,11 @@ type loggerAdaptorLogrus struct {
 	entry *log.Entry
 }
 
-func newLogrusLogger(name string, entry *log.Entry) *loggerAdaptorLogrus {
-	result := new(loggerAdaptorLogrus)
-	result.SetName(name)
+func newLogrusLogger(name string, entry *log.Entry, lvl slf4go.LogLevel) *loggerAdaptorLogrus {
+	result := &loggerAdaptorLogrus{}
 	result.entry = entry.WithField("name", name)
+	result.SetName(name)
+	result.SetLevel(lvl)
 	return result
 }
 
@@ -100,17 +101,26 @@ func (lgr *loggerAdaptorLogrus) Panicf(format string, args ...interface{}) {
 
 // internal LoggerFactory for logrus
 type logrusLoggerFactory struct {
+	level slf4go.LogLevel
 	entry *log.Entry
 }
 
 func newLogrusLoggerFactory() slf4go.LoggerFactory {
-	factory := &logrusLoggerFactory{}
+	factory := &logrusLoggerFactory{level: slf4go.LevelInfo}
 	factory.entry = log.NewEntry(log.New())
 	return factory
 }
 
 func (factory *logrusLoggerFactory) GetLogger(name string) slf4go.Logger {
-	return newLogrusLogger(name, factory.entry)
+	return newLogrusLogger(name, factory.entry, factory.level)
+}
+
+func (factory *logrusLoggerFactory) SetDefaultLogLevel(l slf4go.LogLevel) {
+	factory.level = l
+}
+
+func (factory *logrusLoggerFactory) GetDefaultLogLevel() slf4go.LogLevel {
+	return factory.level
 }
 
 func (factory *logrusLoggerFactory) SetLoggingParameters(params slf4go.LoggingParameters) error {

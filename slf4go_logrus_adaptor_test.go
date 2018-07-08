@@ -5,7 +5,7 @@ import (
 	"github.com/Sirupsen/logrus"
 	"github.com/aellwein/slf4go"
 	"github.com/bouk/monkey"
-	"github.com/smartystreets/assertions"
+	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"
 )
@@ -50,7 +50,7 @@ func TestLoggerFatal(t *testing.T) {
 		logger.Fatal("fatality!")
 	}
 
-	assertions.ShouldPanic(underTest)
+	assert.Panics(t, underTest, "should panic")
 }
 
 func TestLoggerFatalf(t *testing.T) {
@@ -65,7 +65,7 @@ func TestLoggerFatalf(t *testing.T) {
 		logger.Fatalf("fatality: %d", 42)
 	}
 
-	assertions.ShouldPanic(underTest)
+	assert.Panics(t, underTest, "should panic")
 }
 
 func TestLoggerPanic(t *testing.T) {
@@ -149,12 +149,12 @@ func TestSetLoggingParametersAutomatically(t *testing.T) {
 				panic(err)
 			}
 		}
-		assertions.ShouldNotPanic(func() { goodTest(&p) })
-		assertions.ShouldNotPanic(func() { badTest(&p) })
+		assert.NotPanics(t, func() { goodTest(&p) })
+		assert.NotPanics(t, func() { badTest(&p) })
 	}
 
 	// also test an unknown parameter
-	assertions.ShouldPanic(func() {
+	assert.Panics(t, func() {
 		if err := slf4go.GetLoggerFactory().SetLoggingParameters(
 			slf4go.LoggingParameters{"xyzunknown": "blah"}); err != nil {
 			panic(err)
@@ -162,8 +162,8 @@ func TestSetLoggingParametersAutomatically(t *testing.T) {
 	})
 
 	// ...and the branch with no params
-	assertions.ShouldBeNil(slf4go.GetLoggerFactory().SetLoggingParameters(slf4go.LoggingParameters{}))
-	assertions.ShouldBeNil(slf4go.GetLoggerFactory().SetLoggingParameters(nil))
+	assert.Nil(t, slf4go.GetLoggerFactory().SetLoggingParameters(slf4go.LoggingParameters{}))
+	assert.Nil(t, slf4go.GetLoggerFactory().SetLoggingParameters(nil))
 }
 
 func TestLoggingExtendedWithParams(t *testing.T) {
@@ -180,4 +180,14 @@ func TestLoggingExtendedWithParams(t *testing.T) {
 	)
 	logger := slf4go.GetLogger("test")
 	logger.Infof("logging using custom fields: %v", t)
+}
+
+func TestLogrusLoggerFactory_GetDefaultLogLevel(t *testing.T) {
+	assert.Equal(t, slf4go.GetLoggerFactory().GetDefaultLogLevel(), slf4go.LevelInfo)
+}
+
+func TestLogrusLoggerFactory_SetDefaultLogLevel(t *testing.T) {
+	slf4go.GetLoggerFactory().SetDefaultLogLevel(slf4go.LevelTrace)
+	logger := slf4go.GetLogger("test")
+	assert.True(t, logger.IsTraceEnabled())
 }
