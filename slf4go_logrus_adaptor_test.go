@@ -2,12 +2,13 @@ package slf4go_logrus_adaptor
 
 import (
 	"errors"
-	"github.com/Sirupsen/logrus"
-	"github.com/aellwein/slf4go"
-	"github.com/bouk/monkey"
-	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"
+
+	"bou.ke/monkey"
+	"github.com/aellwein/slf4go"
+	"github.com/sirupsen/logrus"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestGetLogger(t *testing.T) {

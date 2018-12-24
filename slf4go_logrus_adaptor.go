@@ -3,9 +3,10 @@ package slf4go_logrus_adaptor
 import (
 	"errors"
 	"fmt"
-	log "github.com/Sirupsen/logrus"
-	"github.com/aellwein/slf4go"
 	"io"
+
+	"github.com/aellwein/slf4go"
+	log "github.com/sirupsen/logrus"
 )
 
 // facade for logrus
