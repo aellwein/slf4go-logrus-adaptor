@@ -127,7 +127,7 @@ func (factory *logrusLoggerFactory) GetDefaultLogLevel() slf4go.LogLevel {
 func (factory *logrusLoggerFactory) SetLoggingParameters(params slf4go.LoggingParameters) error {
 
 	logger := log.New()
-	var entry *log.Entry = nil
+	var entry *log.Entry
 
 	for k, v := range params {
 		switch k {
@@ -164,7 +164,7 @@ func (factory *logrusLoggerFactory) SetLoggingParameters(params slf4go.LoggingPa
 				}
 			}
 		default:
-			return errors.New(fmt.Sprintf("unsupported parameter: %v", k))
+			return fmt.Errorf("unsupported parameter: %v", k)
 		}
 	}
 	if entry != nil {
