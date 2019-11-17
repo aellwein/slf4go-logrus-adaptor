@@ -9,5 +9,7 @@ require (
 	github.com/smartystreets/assertions v0.0.0-20190401211740-f487f9de1cd3 // indirect
 	github.com/smartystreets/goconvey v0.0.0-20190330032615-68dc04aab96a // indirect
 	github.com/stretchr/testify v1.3.0
-	golang.org/x/sys v0.0.0-20190516110030-61b9204099cb // indirect
+	golang.org/x/sys v0.0.0-20191115151921-52ab43148777 // indirect
 )
+
+go 1.13
